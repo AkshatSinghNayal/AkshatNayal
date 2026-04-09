@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akshat Singh Nayal - Resume</title>
+  <style>
+    :root {
+      --bg: #0c1020;
+      --paper: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #4f46e5;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0b1022, #161f3f);
+      color: var(--text);
+      padding: 28px 16px;
+    }
+
+    .resume {
+      max-width: 920px;
+      margin: 0 auto;
+      background: var(--paper);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.24);
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 28px;
+      border-bottom: 1px solid var(--border);
+      background: #f8fafc;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+      letter-spacing: 0.2px;
+      color: #111827;
+    }
+
+    .header p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .header a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .header a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 24px 28px 30px;
+    }
+
+    section {
+      margin-top: 22px;
+    }
+
+    section:first-child {
+      margin-top: 0;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #111827;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 17px;
+      color: #111827;
+    }
+
+    .sub {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    p {
+      margin: 8px 0 0;
+      line-height: 1.6;
+      color: #374151;
+    }
+
+    ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+      color: #374151;
+    }
+
+    li {
+      margin: 6px 0;
+      line-height: 1.55;
+    }
+
+    .item {
+      margin-top: 14px;
+    }
+
+    .item:first-of-type {
+      margin-top: 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 20px;
+    }
+
+    .skills-grid div {
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.55;
+    }
+
+    .actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+
+    .btn.secondary {
+      background: #111827;
+    }
+
+    @media (max-width: 700px) {
+      .header h1 {
+        font-size: 28px;
+      }
+
+      .content,
+      .header {
+        padding: 20px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+
+      .resume {
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+      }
+
+      .actions {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="resume">
+    <header class="header">
+      <h1>Akshat Singh Nayal</h1>
+      <p>
+        +91 9219426398 | Haldwani, Uttarakhand, India<br>
+        <a href="mailto:programmer.akshat@gmail.com">programmer.akshat@gmail.com</a> |
+        <a href="https://linkedin.com/in/akshatnayal/" target="_blank" rel="noopener noreferrer">linkedin.com/in/akshatnayal</a> |
+        <a href="https://github.com/AkshatSinghNayal" target="_blank" rel="noopener noreferrer">github.com/AkshatSinghNayal</a>
+      </p>
+      <div class="actions">
+        <a class="btn" href="index.html">Back to Portfolio</a>
+        <a class="btn" href="AkshatSinghNayal_resume.pdf" target="_blank" rel="noopener noreferrer">Open Current PDF</a>
+        <a class="btn" href="AkshatSinghNayal_resume.pdf" download>Download PDF</a>
+        <a class="btn secondary" href="#" onclick="window.print(); return false;">Print / Save PDF</a>
+      </div>
+    </header>
+
+    <div class="content">
+      <section>
+        <h2>Professional Summary</h2>
+        <p>
+          Computer Science undergraduate with 700+ LeetCode and GFG problems solved (Top 14% contest rating).
+          Built and deployed production-ready RESTful APIs using Node.js, Express, and MongoDB for real-time applications.
+          Seeking Software Development Engineer roles to leverage strong problem-solving and technical skills.
+        </p>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="item">
+          <h3>Bachelor of Technology in Computer Science and Engineering</h3>
+          <p class="sub">Expected 2027 | SRMCEM, Lucknow - Abdul Kalam Technical University (AKTU)</p>
+          <p>CGPA: 7.81/10.0</p>
+          <p>Relevant Coursework: Data Structures and Algorithms, Operating Systems, DBMS, OOPS, Software Engineering.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+          <div><strong>Languages:</strong> C++, JavaScript (ES6+), Python, SQL</div>
+          <div><strong>Frameworks and Web:</strong> Node.js, Express.js, React.js, REST APIs, JWT, HTML, CSS</div>
+          <div><strong>Databases:</strong> MongoDB, MySQL</div>
+          <div><strong>Tools and Core:</strong> Git, GitHub, Postman, Render, Linux, OOP, DSA, DBMS</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Competitive Programming</h2>
+        <p>
+          LeetCode Rating: 1684 (Top 14%) |
+          <a href="https://leetcode.com/Akshat_Nayal/" target="_blank" rel="noopener noreferrer">LeetCode Profile</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <div class="item">
+          <h3>helloMind AI Chat Application (MERN, TypeScript)</h3>
+          <p class="sub">2025 | <a href="https://sih-project-2025-bsvw.onrender.com" target="_blank" rel="noopener noreferrer">Live Demo</a></p>
+          <ul>
+            <li>Engineered an AI-powered chat app for SIH 2025 using Google Gemini API with React and Node.js.</li>
+            <li>Designed scalable REST APIs with Node.js and MongoDB Atlas for real-time persistence and retrieval.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <h3>leetBuddy (MERN)</h3>
+          <p class="sub">2025-2026 | <a href="https://leet-code-helper.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a></p>
+          <ul>
+            <li>Built a spaced repetition system that improved revision consistency by 40%+.</li>
+            <li>Implemented automated daily email notifications with Nodemailer and Gmail SMTP.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Achievements and Certifications</h2>
+        <ul>
+          <li>Team Leader, Smart India Hackathon (SIH) 2025 - led a 6-member team through internal selection rounds.</li>
+          <li>AI/ML for Geodata Analysis - ISRO online course (7.5 hours) by IIRS.</li>
+          <li>Google Cloud Arcade Level 3 Badge - GenAI Study Jam 2024.</li>
+          <li>Maintained a 700+ problem DSA repository helping 50+ peers: <a href="https://github.com/AkshatSinghNayal/leetcode" target="_blank" rel="noopener noreferrer">GitHub Repository</a>.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
