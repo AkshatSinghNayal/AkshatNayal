@@ -4,7 +4,7 @@ Personal portfolio website for Akshat Singh Nayal, built with a customized Anime
 
 ## Live Project Structure
 
-The deployable site lives in the `anime` folder.
+The deployable site lives in the `akshat` folder.
 
 ## Features
 
@@ -26,7 +26,7 @@ The deployable site lives in the `anime` folder.
 From the repository root:
 
 ```bash
-cd anime
+cd akshat
 python3 -m http.server 8080
 ```
 
@@ -39,7 +39,7 @@ http://localhost:8080
 ## Deploy on Vercel
 
 - Import this GitHub repository in Vercel.
-- Set `Root Directory` to `anime`.
+- Set `Root Directory` to `akshat`.
 - Leave build and output settings empty (static site).
 - Deploy.
 
