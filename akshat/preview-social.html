@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="assets/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <style>
+    body {
+      overflow: hidden;
+    }
+
+    .preview-wrap {
+      height: 100vh;
+      background: #10101a;
+    }
+
+    .preview-wrap .home {
+      height: 100vh;
+      padding-top: 110px;
+      grid-template-columns: 1.25fr 0.75fr;
+      grid-gap: 2.8rem;
+    }
+
+    .preview-wrap .home-text h5 {
+      margin-bottom: 8px;
+    }
+
+    .preview-wrap .home-text h1 {
+      font-size: 3.1rem;
+      white-space: nowrap;
+      margin-bottom: 46px;
+    }
+
+    .preview-wrap .typing-line {
+      display: none;
+    }
+
+    .preview-wrap .home-img img {
+      width: 420px;
+    }
+  </style>
+  <title>Social Preview</title>
+</head>
+<body>
+  <div class="preview-wrap">
+    <header>
+      <a href="#" class="logo">Ak<span>shat</span></a>
+      <ul class="navbar">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </header>
+
+    <section class="home" id="home">
+      <div class="home-text">
+        <h5>Hello, I'm</h5>
+        <h1>Akshat Singh Nayal</h1>
+        <a href="#" class="btn">View Resume PDF</a>
+      </div>
+
+      <div class="home-img">
+        <img src="img/home.png" alt="Akshat profile illustration">
+      </div>
+    </section>
+  </div>
+</body>
+</html>
