@@ -319,6 +319,8 @@ section {
   border-radius: 5px;
   cursor: pointer;
   transition: all .40s;
+  display: flex;
+  flex-direction: column;
 }
 
 .box h6 {
@@ -348,6 +350,17 @@ section {
   font-size: 14px;
   font-weight: 500;
   color: var(--2nd-main-color);
+}
+
+.box .click-hint {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 16px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3e4455;
+  letter-spacing: 1px;
 }
 
 .box:hover {
