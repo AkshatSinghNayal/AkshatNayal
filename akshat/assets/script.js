@@ -1,25 +1,56 @@
 let menu = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
+// Mobile menu toggle
 menu.onclick = () => {
   menu.classList.toggle('bx-x');
   navbar.classList.toggle('active');
 };
 
-window.onscroll = () => {
-  menu.classList.remove('bx-x');
-  navbar.classList.remove('active');
-};
-
+// Scroll Reveal
 const sr = ScrollReveal({
   distance: '60px',
-  duration: 2500,
-  reset: true,
+  duration: 1800,
+  reset: false, // animate once for a smoother experience
 });
 
-sr.reveal('.home-text', { delay: 200, origin: 'top' });
-sr.reveal('.home-img', { delay: 400, origin: 'top' });
-sr.reveal('.about, .cta, .resume, .contact, .footer', { delay: 200, origin: 'top' });
+sr.reveal('.home-text', { delay: 150, origin: 'top' });
+sr.reveal('.home-img', { delay: 300, origin: 'top' });
+sr.reveal('.about, .cta, .resume, .contact, .footer', { delay: 150, origin: 'top' });
+
+// Scroll Event Handlers (Header style, active link, menu closing)
+const header = document.querySelector('header');
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.navbar a');
+
+window.addEventListener('scroll', () => {
+  // Close menu on scroll
+  menu.classList.remove('bx-x');
+  navbar.classList.remove('active');
+
+  // Sticky dynamic glassmorphic header
+  if (window.scrollY > 20) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+
+  // Active section nav link highlighting
+  let currentSectionId = '';
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    if (window.scrollY >= sectionTop - 180) {
+      currentSectionId = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove('active-nav');
+    if (link.getAttribute('href') === `#${currentSectionId}`) {
+      link.classList.add('active-nav');
+    }
+  });
+});
 
 const typedGreetingEl = document.querySelector('#typed-greeting');
 const typedNameEl = document.querySelector('#typed-name');
