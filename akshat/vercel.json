@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "headers": [
     {
-      "source": "/(assets|img|pdf)/.*",
+      "source": "/(assets|img|pdf)/:path*",
       "headers": [
         {
           "key": "Cache-Control",
