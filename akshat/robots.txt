@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://akshatnayal.vercel.app/sitemap.xml
+Sitemap: https://akshatnayal.dev/sitemap.xml

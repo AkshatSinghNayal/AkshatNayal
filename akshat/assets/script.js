@@ -8,15 +8,18 @@ menu.onclick = () => {
 };
 
 // Scroll Reveal
-const sr = ScrollReveal({
-  distance: '60px',
-  duration: 1800,
-  reset: false, // animate once for a smoother experience
-});
+if (typeof ScrollReveal !== 'undefined') {
+  const sr = ScrollReveal({
+    distance: '60px',
+    duration: 1800,
+    reset: false, // animate once for a smoother experience
+  });
 
-sr.reveal('.home-text', { delay: 150, origin: 'top' });
-sr.reveal('.home-img', { delay: 300, origin: 'top' });
-sr.reveal('.about, .cta, .resume, .contact, .footer', { delay: 150, origin: 'top' });
+  sr.reveal('.home-text', { delay: 150, origin: 'top' });
+  sr.reveal('.home-img', { delay: 300, origin: 'top' });
+  sr.reveal('.about, .cta, .contact, .footer', { delay: 150, origin: 'top' });
+  sr.reveal('.featured-project, .noteworthy-card:not(.extra-project)', { delay: 100, interval: 100, origin: 'bottom' });
+}
 
 // Scroll Event Handlers (Header style, active link, menu closing)
 const header = document.querySelector('header');
@@ -58,8 +61,8 @@ const typedTextEl = document.querySelector('#typed-text');
 const typingLineContainer = document.querySelector('.typing-line');
 const greetingText = "Hello, I'm";
 const nameText = 'Akshat Singh Nayal';
-const typingSentence = 'an aspiring Software Development Engineer focused on AI-driven backend systems, scalable APIs, and real-world problem solving.';
-const highlightedRole = 'Software Development Engineer';
+const typingSentence = 'I build scalable backend systems, full-stack web applications, and AI-powered solutions using modern technologies.';
+const highlightedRole = 'scalable backend systems';
 
 function escapeHtml(text) {
   return text
@@ -185,3 +188,30 @@ function startTypingEffect() {
 }
 
 startIntroTypingOnce(startTypingEffect);
+
+// Toggle noteworthy projects visibility
+const toggleBtn = document.getElementById('toggle-projects-btn');
+const extraProjects = document.querySelectorAll('.extra-project');
+
+if (toggleBtn) {
+  toggleBtn.addEventListener('click', () => {
+    let anyHidden = false;
+    extraProjects.forEach(proj => {
+      if (proj.classList.contains('hide-project')) {
+        anyHidden = true;
+      }
+    });
+
+    if (anyHidden) {
+      extraProjects.forEach(proj => {
+        proj.classList.remove('hide-project');
+      });
+      toggleBtn.textContent = 'Show Less';
+    } else {
+      extraProjects.forEach(proj => {
+        proj.classList.add('hide-project');
+      });
+      toggleBtn.textContent = 'Show More';
+    }
+  });
+}
