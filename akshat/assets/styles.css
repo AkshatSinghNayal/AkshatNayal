@@ -1071,7 +1071,7 @@ form .send-btn:hover {
 
 /* Image on left/right styling */
 .featured-project .project-img {
-  grid-column: 1 / 9;
+  grid-column: 1 / 8;
   grid-row: 1 / -1;
   position: relative;
   border-radius: 8px;
@@ -1080,10 +1080,11 @@ form .send-btn:hover {
   transition: all 0.3s ease;
   z-index: 1;
   will-change: transform, box-shadow;
+  max-height: 380px;
 }
 
 .featured-project:nth-child(even) .project-img {
-  grid-column: 5 / -1;
+  grid-column: 6 / -1;
   grid-row: 1 / -1;
 }
 
@@ -1096,9 +1097,10 @@ form .send-btn:hover {
 
 .featured-project .project-img img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   object-fit: cover;
+  object-position: top;
   opacity: 0.85;
   mix-blend-mode: multiply;
   filter: grayscale(40%) contrast(1.1) brightness(90%);
@@ -1118,7 +1120,7 @@ form .send-btn:hover {
 
 /* Content block styling */
 .featured-project .project-content {
-  grid-column: 7 / -1;
+  grid-column: 6 / -1;
   grid-row: 1 / -1;
   text-align: right;
   z-index: 2;
@@ -1126,7 +1128,7 @@ form .send-btn:hover {
 }
 
 .featured-project:nth-child(even) .project-content {
-  grid-column: 1 / 7;
+  grid-column: 1 / 8;
   grid-row: 1 / -1;
   text-align: left;
 }
@@ -1138,11 +1140,13 @@ form .send-btn:hover {
   letter-spacing: 1px;
   margin-bottom: 8px;
   display: block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .project-title {
   font-size: clamp(20px, 3vw, 24px);
   margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .project-title a {
@@ -1188,6 +1192,7 @@ form .send-btn:hover {
   color: var(--2nd-main-color);
   font-size: 13px;
   font-family: monospace;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .project-links {
@@ -1205,6 +1210,7 @@ form .send-btn:hover {
   color: var(--text-color);
   font-size: 22px;
   transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9));
 }
 
 .project-links a:hover {
@@ -1451,6 +1457,10 @@ form .send-btn:hover {
     grid-column: 1 / -1 !important;
     grid-row: auto !important;
     border-radius: 8px 8px 0 0;
+    max-height: none !important;
+  }
+  .featured-project .project-img img {
+    height: auto !important;
   }
   .featured-project .project-content {
     grid-column: 1 / -1 !important;
