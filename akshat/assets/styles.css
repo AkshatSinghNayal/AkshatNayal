@@ -457,6 +457,76 @@ section {
   text-align: center;
 }
 
+
+/* Booking accent inherits the site's purple; override here for booking only. */
+.contact {
+  --booking-brand-color: var(--main-color);
+}
+
+.contact-subtitle {
+  margin: 1rem auto 2rem;
+  max-width: 550px;
+  color: var(--2nd-main-color);
+  line-height: 1.7;
+}
+
+.contact-booking {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  background: var(--bg--color);
+  color-scheme: dark;
+}
+
+.contact-calendar {
+  width: 100%;
+  min-height: 620px;
+  overflow-x: hidden;
+}
+
+.contact-booking-fallback {
+  padding: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.contact-booking-fallback a {
+  color: var(--booking-brand-color);
+}
+
+.contact-booking-fallback a:hover {
+  text-decoration: underline;
+}
+
+.contact-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 550px;
+  margin: 2.5rem auto 0;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.contact-divider::before,
+.contact-divider::after {
+  content: '';
+  flex: 1;
+  min-width: 12px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .contact-calendar {
+    min-height: 780px;
+  }
+}
+
 .contact-center {
   display: flex;
   justify-content: center;
@@ -1602,3 +1672,194 @@ form .send-btn:hover {
   }
 }
 
+/* Compact portfolio layout. All overrides are mobile-only; contact is excluded. */
+@media (max-width: 768px) {
+  body:has(#home) header,
+  body:has(#home) header.scrolled { padding: 8px 5%; }
+  body:has(#home) .logo,
+  body:has(#home) #menu-icon,
+  body:has(#home) .navbar a {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  body:has(#home) #menu-icon { justify-content: center; }
+  body:has(#home) .navbar a { margin: 0 12px; padding: 10px 12px; }
+  body:has(#home) .navbar:not(.active) { visibility: hidden; }
+  body:has(#home) .navbar.active { padding: 8px 0; }
+
+  #home, #about, #services, #projects { padding: 28px 5%; min-width: 0; }
+  #home { display: block; margin-top: 64px; text-align: left; }
+  #home .home-img { position: absolute; top: 28px; right: 5%; width: 76px; }
+  #home .home-img img { width: 100%; animation: none; }
+  #home h5 { font-size: 16px; margin-bottom: 8px; padding-right: 88px; }
+  #home h1 { font-size: clamp(24px, 6vw, 34px); line-height: 1.15; padding-right: 88px; min-height: 2.3em; }
+  #home .home-role { font-size: 16px; letter-spacing: 1px; margin-bottom: 10px; }
+  #home h6 { font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
+  #home .btn, #about .btn, .cta .btn { min-height: 44px; letter-spacing: 1px; }
+
+  #about { display: flow-root; text-align: left; }
+  #about .about-img { float: right; width: 76px; margin: 0 0 8px 12px; }
+  #about .about-img img { width: 100%; }
+  #about h3 { font-size: 21px; letter-spacing: 2px; margin-bottom: 10px; }
+  #about h2 { font-size: 18px; line-height: 1.35; margin-bottom: 12px; }
+  #about p { font-size: 14px; line-height: 1.55; margin-bottom: 12px; }
+  #about .about-tech-stack { clear: both; justify-content: flex-start; gap: 6px; margin: 12px 0; }
+  #about .tech-pill { padding: 5px 9px; font-size: 12px; }
+  #about .about-sde-note { border: 0; border-left: 2px solid var(--main-color); padding: 4px 10px; max-width: none; margin: 12px 0; }
+  #about .about-subtitle { font-size: 16px; margin: 18px 0 10px; }
+  #about .facts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0 0 16px; }
+  #about .fact-card { justify-content: flex-start; padding: 8px; gap: 6px; min-width: 0; }
+  #about .fact-label { font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; }
+  #about .fact-icon { flex-shrink: 0; }
+  #about .main-btn .btn { margin-right: 0; }
+
+  #services .center h3, #projects .center h3 { font-size: 21px; line-height: 1.4; letter-spacing: 2px; }
+  #services .service-content { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+  #services .row { padding: 14px 12px; min-width: 0; cursor: default; }
+  #services .row i { font-size: 24px; margin-bottom: 8px; }
+  #services .row h3 { font-size: 15px; line-height: 1.35; margin-bottom: 8px; overflow-wrap: anywhere; }
+  #services .row p { font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+  #services .row:hover { transform: none; }
+  .cta { padding: 22px 5%; margin: 12px auto; }
+  .cta h4 { font-size: 16px; line-height: 1.45; max-width: 480px; margin: 0 auto 14px; }
+
+  #projects .featured-showcase { gap: 16px; margin-top: 18px; }
+  #projects .featured-project { display: flex; flex-direction: column; align-items: stretch; min-width: 0; }
+  #projects .featured-project .project-img { order: 0; }
+  #projects .featured-project .project-img a { background: #0b0b13; }
+  #projects .featured-project .project-img img { height: 120px !important; object-fit: contain; }
+  #projects .featured-project .project-content { order: 1; padding: 14px; margin-top: 0; min-width: 0; }
+  #projects .project-overline { font-size: 11px; margin-bottom: 2px; }
+  #projects .project-title { font-size: 19px; margin-bottom: 0; }
+  #projects .project-title a { display: flex; align-items: center; min-height: 44px; overflow-wrap: anywhere; }
+  #projects .project-description { font-size: 13px; line-height: 1.55; }
+  #projects .project-tech-list { gap: 6px 12px; margin: 12px 0; }
+  #projects .project-tech-list li { font-size: 12px; }
+  #projects .project-links { margin-top: 4px; gap: 4px; }
+  #projects .project-links a, #projects .noteworthy-links a {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 44px; min-height: 44px; margin: 0;
+  }
+  #projects .noteworthy-section { margin-top: 28px; }
+  #projects .noteworthy-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 12px; }
+  #projects .noteworthy-card { padding: 12px 14px; min-width: 0; }
+  #projects .noteworthy-header { margin-bottom: 4px; }
+  #projects .folder-icon { font-size: 26px; }
+  #projects .noteworthy-title { font-size: 17px; margin-bottom: 2px; }
+  #projects .noteworthy-description { font-size: 13px; margin: 4px 0 12px; }
+  #projects .noteworthy-links { display: flex; gap: 4px; }
+  #projects .toggle-container { margin-top: 16px; }
+  #projects .toggle-btn, #projects .archive-link { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+  #projects .mobile-project-details summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    min-height: 44px; color: var(--main-color); font-size: 13px; cursor: pointer;
+    list-style: none;
+  }
+  #projects .mobile-project-details summary::-webkit-details-marker { display: none; }
+  #projects .mobile-project-details summary::after { content: '+'; font-size: 20px; }
+  #projects .mobile-project-details[open] summary::after { content: '−'; }
+  #projects .mobile-project-details summary:focus-visible { outline: 2px solid var(--main-color); outline-offset: 2px; }
+
+  /* Mobile art direction: generous type, quiet surfaces, and progressive detail. */
+  #home, #about, #services, #projects { padding-left: 6%; padding-right: 6%; }
+  #home {
+    padding-top: 42px; padding-bottom: 32px;
+    background: transparent;
+  }
+  #home .home-img { width: 112px; top: 20px; right: 6%; }
+  #home h5 { padding: 0; margin: 0 0 76px; font-size: 14px; letter-spacing: 2px; }
+  #home h1 { padding: 0; max-width: 310px; font-size: clamp(34px,9.5vw,48px); min-height: 0; line-height: 1.12; margin-bottom: 18px; }
+  #home .home-role { display: inline-block; font-size: 12px; letter-spacing: 2px; border-bottom: 1px solid rgba(147,112,219,.35); padding-bottom: 9px; margin-bottom: 12px; }
+  #home .typing-line { display: none; }
+  #home .mobile-intro { color: var(--2nd-main-color); font-size: 14px; line-height: 1.7; max-width: 500px; margin-bottom: 22px; }
+  #home .btn, #about .btn, .cta .btn { border-radius: 8px; box-shadow: none; padding: 0 18px; }
+  #about { padding-top: 28px; padding-bottom: 28px; border-top: 1px solid rgba(147,112,219,.15); }
+  #about h3, #services .center h3 { font-size: 13px; color: var(--main-color); letter-spacing: 3px; text-transform: uppercase; }
+  #about h2 { font-size: 21px; line-height: 1.35; }
+  #about .about-img { width: 88px; margin-left: 16px; }
+  #about .tech-pill { border-radius: 5px; font-size: 11px; padding: 6px 8px; }
+  #about .about-subtitle { font-size: 12px; color: var(--2nd-main-color); letter-spacing: 2px; }
+  #about .facts-grid { gap: 0 14px; }
+  #about .fact-card { border: 0; border-bottom: 1px solid rgba(255,255,255,.05); border-radius: 0; background: transparent; padding: 12px 0; }
+  #about .fact-label { font-size: 12px; }
+  #about .main-btn .btn { background: transparent; color: var(--main-color); border: 1px solid rgba(147,112,219,.4); }
+  #services { padding-top: 24px; }
+  #services .center { text-align: left; }
+  #services .service-content { grid-template-columns: minmax(0,1fr); gap: 0; margin-top: 12px; border-top: 1px solid rgba(255,255,255,.08); }
+  #services .row { background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,.08); border-radius: 0; padding: 0; box-shadow: none; }
+  #services .mobile-skill-details summary { display: flex; align-items: center; gap: 14px; min-height: 62px; cursor: pointer; list-style: none; }
+  #services .mobile-skill-details summary::-webkit-details-marker { display: none; }
+  #services .mobile-skill-details summary::after { content: '+'; color: var(--main-color); margin-left: auto; font-size: 22px; }
+  #services .mobile-skill-details[open] summary::after { content: '−'; }
+  #services .row i { font-size: 23px; margin: 0; }
+  #services .row h3 { margin: 0; font-size: 16px; }
+  #services .row p { padding: 0 16px 18px 37px; font-size: 14px; line-height: 1.7; }
+  #services summary:focus-visible { outline: 2px solid var(--main-color); outline-offset: 2px; }
+  .cta { width: 88%; padding: 20px; border: 1px solid rgba(255,255,255,.08); border-radius: 8px; background: transparent; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .cta h4 { font-size: 15px; font-weight: 400; color: rgba(255,255,255,.8); margin-bottom: 16px; }
+  #projects .center { text-align: left; }
+  #projects .center h3 { font-size: 24px; letter-spacing: 0; line-height: 1.25; max-width: 280px; }
+  #projects .mobile-project-controls { display: flex; align-items: center; gap: 4px; margin: 16px 0 8px; }
+  #projects .mobile-project-controls span { font-size: 9px; line-height: 1.5; letter-spacing: 1px; color: var(--2nd-main-color); margin-right: auto; }
+  #projects .mobile-project-controls button { flex: 0 0 44px; height: 44px; border: 1px solid rgba(147,112,219,.25); border-radius: 50%; color: var(--main-color); background: transparent; font-size: 20px; cursor: pointer; }
+  #projects .featured-showcase { display: grid; grid-auto-flow: column; grid-auto-columns: 92%; grid-template-columns: none; align-items: start; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; margin-top: 0; padding-bottom: 12px; scrollbar-width: thin; scrollbar-color: var(--main-color) transparent; }
+  /* Full-bleed project artwork with readable information over the fade. */
+  #projects .featured-showcase { align-items: stretch; }
+  #projects .featured-project {
+    visibility: visible !important; opacity: 1 !important; transform: none !important;
+    position: relative; isolation: isolate; scroll-snap-align: start;
+    border: 0; border-radius: 3px; overflow: hidden;
+    background: #171323; box-shadow: none;
+  }
+  #projects .featured-project .project-img {
+    position: absolute; inset: 0; border-radius: 0; box-shadow: none;
+    z-index: -1; transform: none;
+  }
+  #projects .featured-project .project-img a { background: transparent; }
+  #projects .featured-project .project-img img {
+    width: 100%; height: 100% !important; object-fit: cover; object-position: center top;
+    mix-blend-mode: luminosity; filter: none; opacity: .32;
+  }
+  #projects .featured-project::before {
+    content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background: linear-gradient(145deg, rgba(32,24,49,.78) 0%, rgba(23,19,35,.84) 48%, rgba(16,16,26,.98) 100%);
+  }
+  #projects .featured-project .project-content {
+    position: relative; z-index: 1; display: flex; flex-direction: column;
+    flex: 1; min-height: 420px; margin: 0; padding: 28px 24px 20px;
+    border: 0; border-radius: 0; background: transparent;
+  }
+  #projects .project-overline { font-size: 10px; letter-spacing: 2px; margin-bottom: 4px; }
+  #projects .project-title { font-size: 23px; margin-bottom: 18px; text-shadow: none; }
+  #projects .project-title a { line-height: 1.25; }
+  #projects .project-description {
+    background: transparent; backdrop-filter: none; border: 0; border-radius: 0;
+    box-shadow: none; padding: 0; font-size: 14px; line-height: 1.75;
+    color: var(--2nd-main-color); margin-bottom: 24px;
+  }
+  #projects .project-tech-list { margin: auto 0 12px; padding-top: 8px; gap: 8px 14px; }
+  #projects .project-tech-list li { font-size: 11px; line-height: 1.5; }
+  #projects .project-links { border: 0; margin: 0 0 0 -10px; padding: 0; gap: 4px; }
+  #projects .featured-project:focus-within { outline: 2px solid var(--main-color); outline-offset: -2px; }
+  #projects .noteworthy-section { margin-top: 26px; }
+  #projects .noteworthy-section h3 { font-size: 20px; }
+  #projects .noteworthy-grid { gap: 0; }
+  #projects .noteworthy-card { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 0 8px; padding: 12px 0; background: transparent; border: 0; border-top: 1px solid rgba(255,255,255,.08); border-radius: 0; box-shadow: none; }
+  #projects .noteworthy-title { grid-column: 1; grid-row: 1; align-self: center; font-size: 16px; }
+  #projects .noteworthy-header { grid-column: 2; grid-row: 1; margin: 0; }
+  #projects .folder-icon { display: none; }
+  #projects .noteworthy-card .mobile-project-details { grid-column: 1 / -1; }
+  #projects .noteworthy-links { gap: 0; }
+  #projects .noteworthy-card:hover { transform: none; }
+
+  /* Keep the existing sidebar links available as a compact mobile footer. */
+  body:has(#home) .left-social-sidebar, body:has(#home) .right-email-sidebar {
+    display: flex !important; position: static; width: auto; margin: 0 5%;
+  }
+  body:has(#home) .sidebar-socials { flex-direction: row; gap: 8px; }
+  body:has(#home) .sidebar-socials li a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; }
+  body:has(#home) .sidebar-email { writing-mode: horizontal-tb; display: flex; align-items: center; min-height: 44px; letter-spacing: 0; overflow-wrap: anywhere; }
+  body:has(#home) .sidebar-line { display: none; }
+}
