@@ -59,7 +59,7 @@
   <!-- Icon -->
   <link type="image/png" sizes="16x16" rel="icon" href="assets/anime.png">
   <!-- External CSS Link -->
-  <link rel="stylesheet" type="text/css" href="assets/styles.css?v=9">
+  <link rel="stylesheet" type="text/css" href="assets/styles.css?v=15">
 
   <!-- Boxicons Script -->
   <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -460,6 +460,35 @@
     <div class="contact-center">
       <h2>Get In Touch</h2>
     </div>
+    <p class="contact-subtitle">Want to talk? Book a slot below, or send me a message.</p>
+
+    <!-- Change the booking event here; the embed also uses this link as its fallback. -->
+    <div class="contact-booking" id="contact-booking">
+      <div id="cal-booking" class="contact-calendar" aria-label="Book a 30 Min Intro Chat"></div>
+      <p class="contact-booking-fallback">
+        <a id="cal-booking-link" href="https://cal.com/akshat-nayal/30-min-intro-chat" target="_blank" rel="noopener noreferrer">Open booking calendar in a new tab</a>
+      </p>
+    </div>
+
+    <p class="contact-divider">Or prefer to write? Send a message</p>
+
+    <script type="module">
+      const booking = document.getElementById('contact-booking');
+      const loadBooking = () => import('./assets/contact-booking.js').catch(() => {
+        document.getElementById('cal-booking').textContent = 'Please use the link below to open the booking calendar.';
+      });
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            observer.disconnect();
+            loadBooking();
+          }
+        }, { rootMargin: '300px' });
+        observer.observe(booking);
+      } else {
+        loadBooking();
+      }
+    </script>
 
     <div class="contact-form">
       <!-- <div class="contact-links"> -->
@@ -506,7 +535,7 @@
   <script src="https://unpkg.com/scrollreveal"></script>
 
   <!-- JS Script Link -->
-  <script src="assets/script.js"></script>
+  <script src="assets/script.js?v=5"></script>
 
 </body>
 

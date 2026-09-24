@@ -140,6 +140,7 @@ function setTypingLineHeight() {
   if (!typedTextEl || !typingLineContainer) return;
 
   const currentText = typedTextEl.textContent;
+  typingLineContainer.style.minHeight = '';
   renderTypedSentence(typingSentence);
   typingLineContainer.style.minHeight = `${Math.ceil(typingLineContainer.getBoundingClientRect().height)}px`;
   renderTypedSentence(currentText);
@@ -215,3 +216,82 @@ if (toggleBtn) {
     }
   });
 }
+
+// Mobile project disclosures preserve the original nodes and desktop structure.
+(() => {
+  if (!document.getElementById('home')) return;
+  const mobileLayout = window.matchMedia('(max-width: 768px)');
+  const disclosures = [];
+  const skillDisclosures = [];
+  const intro = document.createElement('p');
+  intro.className = 'mobile-intro';
+  intro.textContent = typingSentence;
+  const railControls = document.createElement('div');
+  railControls.className = 'mobile-project-controls';
+  railControls.innerHTML = '<span>SELECTED WORK · SWIPE TO EXPLORE</span><button type="button" aria-label="Previous featured project">←</button><button type="button" aria-label="Next featured project">→</button>';
+  const rail = document.querySelector('.featured-showcase');
+  railControls.querySelectorAll('button').forEach((button, index) => {
+    button.addEventListener('click', () => {
+      rail.scrollBy({ left: (index ? 1 : -1) * (rail.firstElementChild.getBoundingClientRect().width + 16), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    });
+  });
+
+  const syncProjectDetails = () => {
+    if (mobileLayout.matches && !disclosures.length) {
+      document.querySelector('.typing-line').after(intro);
+      rail.before(railControls);
+      document.querySelectorAll('#services .row').forEach((card) => {
+        const nodes = Array.from(card.childNodes);
+        const details = document.createElement('details');
+        details.className = 'mobile-skill-details';
+        const summary = document.createElement('summary');
+        const icon = card.querySelector('i');
+        const heading = card.querySelector('h3');
+        summary.append(icon, heading);
+        details.append(summary, card.querySelector('p'));
+        card.append(details);
+        skillDisclosures.push({ card, nodes, details });
+      });
+      document.querySelectorAll('.noteworthy-card').forEach((card) => {
+        const description = card.querySelector('.project-description, .noteworthy-description');
+        const tech = card.querySelector('.project-tech-list, .noteworthy-tech');
+        if (!description || !tech) return;
+        const details = document.createElement('details');
+        details.className = 'mobile-project-details';
+        const summary = document.createElement('summary');
+        summary.textContent = 'Details & tech stack';
+        const title = card.querySelector('.project-title, .noteworthy-title').textContent.trim();
+        summary.setAttribute('aria-label', `${title}: details and tech stack`);
+        description.before(details);
+        details.append(summary, description, tech);
+        disclosures.push({ details, description, tech });
+      });
+    } else if (!mobileLayout.matches) {
+      intro.remove();
+      railControls.remove();
+      skillDisclosures.splice(0).forEach(({ card, nodes, details }) => {
+        card.replaceChildren(...nodes);
+      });
+      disclosures.splice(0).forEach(({ details, description, tech }) => {
+        details.replaceWith(description, tech);
+      });
+    }
+  };
+  mobileLayout.addEventListener('change', syncProjectDetails);
+  syncProjectDetails();
+
+  // The existing div menu remains visually identical, with keyboard support.
+  menu.setAttribute('role', 'button');
+  menu.setAttribute('tabindex', '0');
+  menu.setAttribute('aria-label', 'Toggle navigation');
+  const syncMenuState = () => menu.setAttribute('aria-expanded', String(navbar.classList.contains('active')));
+  menu.addEventListener('click', syncMenuState);
+  menu.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      menu.click();
+    }
+  });
+  window.addEventListener('scroll', syncMenuState, { passive: true });
+  syncMenuState();
+})();
